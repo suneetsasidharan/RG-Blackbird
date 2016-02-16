@@ -1,0 +1,132 @@
+<p>This is the partial for view 1.</p>
+<div class="container">
+    <form id="ruleGen">
+        <h3>Rule Info</h3>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-6">
+                    <label class="control-label">Rule Name</label>
+                    <input type="text" class="form-control" name="ruleName"/>
+                </div>
+                <div class="col-xs-2">
+                    <label class="control-label">Rule Number</label>
+                    <input type="text" class="form-control" name="ruleNumber"/>
+                </div>
+                <div class="col-xs-2">
+                    <label class="control-label">Version</label>
+                    <input type="text" class="form-control" name="ruleversion"/>
+                </div>
+            </div>
+        </div>
+
+        <h3>Flighting</h3>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-4">
+                    <label class="control-label">Min Flight</label>
+                    <input type="text" class="form-control" name="minFlight"/>
+                </div>
+                <div class="col-xs-4">
+                    <label class="control-label">Max Flight</label>
+                    <input type="text" class="form-control" name="maxFlight"/>
+                </div>
+            </div>
+        </div>
+
+        <h3>Sources</h3>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-6">
+                    <label class="control-label">EtwSource</label>
+                    <input type="text" class="form-control" name="etwSource"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <label class="control-label">AppEvent</label>
+                    <input type="text" class="form-control" name="appEventName"/>
+                    <label class="control-label">Token</label>
+                    <input type="text" class="form-control" name="Token"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 selectContainer">
+                    <label class="control-label">Timer</label>
+                    <select class="form-control" name="timer">
+                        <option value="">Choose a time interval</option>
+                        <option value="30s">30s</option>
+                        <option value="1min">1minute</option>
+                        <option value="5min">5minutes</option>
+                        <option value="10min">10minutes</option>
+                        <option value="15min">15minutes</option>
+                        <option value="30min">30minutes</option>
+                        <option value="hourly">Hourly</option>
+                        <option value="daily">Daily</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <label class="control-label">Filter</label>
+                </div>
+            </div>
+        </div>
+
+        <h3>Columns</h3>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-6">
+                    <label class="control-label"></label>
+                    <input type="text" class="form-control" name="website"/>
+                </div>
+
+                <div class="col-xs-6">
+                    <label class="control-label">Youtube trailer</label>
+                    <input type="text" class="form-control" name="trailer"/>
+                </div>
+            </div>
+        </div>
+
+        <h3>Trigger</h3>
+
+        <div class="form-group">
+            <div class="col-xs-4">
+                <label class="control-label">Trigger</label>
+                <input type="text" class="form-control" name="triggers[0].source"/>
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+        </div>
+        <div class="form-group hide" id="triggerTemplate">
+            <div class="col-xs-4 col-xs-offset-1">
+                <input type="text" class="form-control" name="source"/>
+            </div>
+            <div class="col-xs-1">
+                <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Rating</label>
+
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="rating" value="terrible"/> Terrible
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="rating" value="watchable"/> Watchable
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="rating" value="best"/> Best ever
+                </label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-default">Validate</button>
+    </form>
+</div>
