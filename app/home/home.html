@@ -1,4 +1,3 @@
-<p>This is the partial for view 1.</p>
 <div class="container">
     <form id="ruleGen">
         <h3>Rule Info</h3>
@@ -52,22 +51,7 @@
                     <input type="text" class="form-control" name="Token"/>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-4 selectContainer">
-                    <label class="control-label">Timer</label>
-                    <select class="form-control" name="timer">
-                        <option value="">Choose a time interval</option>
-                        <option value="30s">30s</option>
-                        <option value="1min">1minute</option>
-                        <option value="5min">5minutes</option>
-                        <option value="10min">10minutes</option>
-                        <option value="15min">15minutes</option>
-                        <option value="30min">30minutes</option>
-                        <option value="hourly">Hourly</option>
-                        <option value="daily">Daily</option>
-                    </select>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-xs-6">
                     <label class="control-label">Filter</label>
@@ -75,18 +59,34 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-xs-3 selectContainer">
+                <label class="control-label">Timer</label>
+                <select class="form-control" name="timer">
+                    <option value="">Choose a time interval</option>
+                    <option value="30s">30s</option>
+                    <option value="1min">1minute</option>
+                    <option value="5min">5minutes</option>
+                    <option value="10min">10minutes</option>
+                    <option value="15min">15minutes</option>
+                    <option value="30min">30minutes</option>
+                    <option value="hourly">Hourly</option>
+                    <option value="daily">Daily</option>
+                </select>
+            </div>
+        </div>
+
         <h3>Columns</h3>
 
         <div class="form-group">
             <div class="row">
-                <div class="col-xs-6">
-                    <label class="control-label"></label>
-                    <input type="text" class="form-control" name="website"/>
+                <div class="col-xs-2">
+                    <label class="control-label">Column #</label>
+                    <input type="text" class="form-control" name="columnNumber"/>
                 </div>
-
                 <div class="col-xs-6">
-                    <label class="control-label">Youtube trailer</label>
-                    <input type="text" class="form-control" name="trailer"/>
+                    <label class="control-label">Column Name</label>
+                    <input type="text" class="form-control" name="columnName"/>
                 </div>
             </div>
         </div>
@@ -94,23 +94,20 @@
         <h3>Trigger</h3>
 
         <div class="form-group">
-            <div class="col-xs-4">
-                <label class="control-label">Trigger</label>
-                <input type="text" class="form-control" name="triggers[0].source"/>
-            </div>
-        </div>
-        <div class="col-xs-1">
-            <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
-        </div>
-        <div class="form-group hide" id="triggerTemplate">
-            <div class="col-xs-4 col-xs-offset-1">
-                <input type="text" class="form-control" name="source"/>
+            <div class="row" ng-repeat="trigger in triggers">
+                <label class="col-xs-1 control-label">Trigger</label>
+                <div class="col-xs-4" class="col-xs-offset-1">
+                    <input type="text" ng-model="trigger.name" class="form-control" name=""/>
+                </div>
+                <div class="col-xs-1">
+                    <button class="btn btn-default removeButton" ng-show="$last" ng-click="removeTrigger()">-</button>
+                </div>
             </div>
             <div class="col-xs-1">
-                <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+                <button type="button" ng-click="addTrigger()" class="btn btn-default addButton"><i class="fa fa-plus">+</i></button>
             </div>
         </div>
-
+<!--
         <div class="form-group">
             <label class="control-label">Rating</label>
 
@@ -125,7 +122,7 @@
                     <input type="radio" name="rating" value="best"/> Best ever
                 </label>
             </div>
-        </div>
+        </div>-->
 
         <button type="submit" class="btn btn-default">Validate</button>
     </form>
